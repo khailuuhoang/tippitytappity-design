@@ -5,6 +5,9 @@ tippitytappity is a program to practice typing
 
 ## Data model
 
+# TippityTappity Class Diagram
+
+```mermaid
 classDiagram
 direction TB
 
@@ -37,18 +40,6 @@ class TypingSession {
   +get_typed(): string
 }
 
-class TypingResult {
-  -accuracy_pct: double
-  -wpm: double
-  -correct_chars: int
-  -incorrect_chars: int
-  +TypingResult(acc: double, wpm: double, correct: int, incorrect: int)
-  +get_accuracy_pct(): double
-  +get_wpm(): double
-  +get_correct_chars(): int
-  +get_incorrect_chars(): int
-}
-
 class AccuracyCalculator {
   +accuracy_pct(expected: string, typed: string): double
   +correct_chars(expected: string, typed: string): int
@@ -61,7 +52,6 @@ class WpmCalculator {
 
 PhraseBank --> Phrase : stores
 TypingSession --> Phrase : uses
-TypingSession --> TypingResult : produces
 TypingSession --> AccuracyCalculator : uses
 TypingSession --> WpmCalculator : uses
 ```
